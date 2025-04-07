@@ -1,0 +1,344 @@
+import React from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+const HackathonTimeline = () => {
+  const [ref1, inView1] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  
+  const [ref2, inView2] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  
+  const [ref3, inView3] = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut" 
+      }
+    }
+  };
+
+  return (
+    <TimelineContainer
+      as={motion.div}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <TimelineHeading>Hackathon Journey</TimelineHeading>
+      <TimelineDescription>
+        Our hackathon is structured in three exciting rounds to bring out the best in you.
+        From ideation to final presentation, we've designed a comprehensive journey.
+      </TimelineDescription>
+      
+      <Timeline>
+        <TimelineItem
+          ref={ref1}
+          as={motion.div}
+          initial={{ opacity: 0, x: -100 }}
+          animate={inView1 ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <TimelineNumber>01</TimelineNumber>
+          <TimelineContent>
+            <TimelineItemTitle>Ideation & Presentation Round</TimelineItemTitle>
+            <TimelineItemDescription>
+              Present your innovative ideas to our panel of judges. This is where you showcase your 
+              vision, creativity, and the problem you're aiming to solve. The top teams with the most 
+              promising ideas will advance to the next round.
+            </TimelineItemDescription>
+            <TimelineDetails>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Duration: 2 Hours</span>
+              </TimelineDetailItem>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Team Size: 2-4 Members</span>
+              </TimelineDetailItem>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 11 12 14 22 4"></polyline>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                <span>Selection: Top 50% Teams</span>
+              </TimelineDetailItem>
+            </TimelineDetails>
+          </TimelineContent>
+        </TimelineItem>
+        
+        <TimelineItem
+          ref={ref2}
+          as={motion.div}
+          initial={{ opacity: 0, x: 100 }}
+          animate={inView2 ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          reverse
+        >
+          <TimelineNumber>02</TimelineNumber>
+          <TimelineContent>
+            <TimelineItemTitle>Development & Prototype Round</TimelineItemTitle>
+            <TimelineItemDescription>
+              This is where the real action happens! Teams will have 24 hours to develop a working 
+              prototype of their solution. Mentors will be available to guide you through technical 
+              challenges. Show us your coding skills, teamwork, and problem-solving abilities.
+            </TimelineItemDescription>
+            <TimelineDetails>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Duration: 24 Hours</span>
+              </TimelineDetailItem>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Resources: Provided</span>
+              </TimelineDetailItem>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 11 12 14 22 4"></polyline>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                <span>Selection: Top 10 Teams</span>
+              </TimelineDetailItem>
+            </TimelineDetails>
+          </TimelineContent>
+        </TimelineItem>
+        
+        <TimelineItem
+          ref={ref3}
+          as={motion.div}
+          initial={{ opacity: 0, x: -100 }}
+          animate={inView3 ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <TimelineNumber>03</TimelineNumber>
+          <TimelineContent>
+            <TimelineItemTitle>Final Presentation & Demo Round</TimelineItemTitle>
+            <TimelineItemDescription>
+              The grand finale! The top 10 teams will present their completed projects to a panel of 
+              industry experts and investors. This is your chance to shine and showcase the full 
+              potential of your innovation. Winners will be selected based on innovation, execution, 
+              impact, and presentation.
+            </TimelineItemDescription>
+            <TimelineDetails>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Duration: 3 Hours</span>
+              </TimelineDetailItem>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                <span>Prizes: $10,000+ Pool</span>
+              </TimelineDetailItem>
+              <TimelineDetailItem>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <span>Incubation Opportunity</span>
+              </TimelineDetailItem>
+            </TimelineDetails>
+          </TimelineContent>
+        </TimelineItem>
+      </Timeline>
+    </TimelineContainer>
+  );
+};
+
+const TimelineContainer = styled.div`
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const TimelineHeading = styled.h2`
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
+
+const TimelineDescription = styled.p`
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: #b0b0b0;
+  line-height: 1.6;
+`;
+
+const Timeline = styled.div`
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #6e00ff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    @media (max-width: 768px) {
+      left: 30px;
+    }
+  }
+`;
+
+const TimelineItem = styled.div`
+  display: flex;
+  justify-content: ${props => props.reverse ? 'flex-start' : 'flex-end'};
+  padding-bottom: 70px;
+  position: relative;
+  width: 100%;
+  
+  &:last-child {
+    padding-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    padding-left: 70px;
+  }
+`;
+
+const TimelineNumber = styled.div`
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #6e00ff 0%, #ff00e6 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(110, 0, 255, 0.4);
+  
+  @media (max-width: 768px) {
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+`;
+
+const TimelineContent = styled.div`
+  background-color: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 45%;
+  position: relative;
+  border: 1px solid rgba(110, 0, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgba(26, 26, 26, 0.7) transparent transparent;
+    top: 20px;
+    left: -10px;
+    transform: ${props => props.reverse ? 'none' : 'rotate(180deg)'};
+    transform-origin: center;
+    
+    @media (max-width: 768px) {
+      transform: none;
+      left: -10px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const TimelineItemTitle = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+`;
+
+const TimelineItemDescription = styled.p`
+  color: #b0b0b0;
+  margin-bottom: 20px;
+  line-height: 1.6;
+`;
+
+const TimelineDetails = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+`;
+
+const TimelineDetailItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(110, 0, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 30px;
+  
+  svg {
+    color: #6e00ff;
+  }
+  
+  span {
+    font-size: 14px;
+    color: #ffffff;
+  }
+`;
+
+export default HackathonTimeline;
