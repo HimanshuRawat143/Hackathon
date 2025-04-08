@@ -78,7 +78,7 @@ const Footer = () => {
       </FooterContent>
       
       <FooterBottom>
-        <Copyright>© {new Date().getFullYear()} TechHack 2025. All rights reserved.</Copyright>
+        <Copyright>© {new Date().getFullYear()} Hack-O-Holic 3.O | All rights reserved.</Copyright>
         <FooterBottomLinks>
           <FooterBottomLink to="/privacy">Privacy Policy</FooterBottomLink>
           <FooterBottomLink to="/terms">Terms of Service</FooterBottomLink>

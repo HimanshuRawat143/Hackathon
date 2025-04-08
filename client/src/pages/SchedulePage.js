@@ -118,9 +118,8 @@ const SchedulePage = () => {
                 </InfoIcon>
                 <InfoTitle>Venue</InfoTitle>
                 <InfoContent>
-                  <p>Tech University, Innovation Campus</p>
-                  <p>123 Coding Street, Silicon Valley, CA</p>
-                  <p>Main Auditorium & Innovation Labs</p>
+                  <p>Graphic Era Hill University, Dehradun</p>
+                  <p>Main Auditorium & Labs</p>
                 </InfoContent>
               </InfoCard>
               
@@ -193,7 +192,7 @@ const SchedulePage = () => {
             <FAQ>
               <FAQQuestion>What is the registration fee?</FAQQuestion>
               <FAQAnswer>
-                Hack-O-Holic 3.0 is completely free for all participants. We believe in making innovation accessible to everyone.
+              Hack-O-Holic 3.0 brings you an upgraded experience at just ₹350! This small fee ensures quality resources, mentorship, and exciting rewards for all participants. Let's innovate together! 🚀
               </FAQAnswer>
             </FAQ>
             
@@ -207,21 +206,14 @@ const SchedulePage = () => {
             <FAQ>
               <FAQQuestion>Will accommodation be provided?</FAQQuestion>
               <FAQAnswer>
-                Yes, we provide designated resting areas for participants during the hackathon. However, for those coming from out of town, we recommend arranging your own accommodation for before and after the event.
-              </FAQAnswer>
-            </FAQ>
-            
-            <FAQ>
-              <FAQQuestion>Can I start working on my project before the hackathon?</FAQQuestion>
-              <FAQAnswer>
-                No, all projects must be started from scratch during the hackathon. You can come with ideas, but no pre-written code or designs are allowed.
+              No, Hack-O-Holic 3.0 is a thrilling 24-hour hackathon where sleep takes a backseat! With exciting games and non-stop activities, you'll be energized throughout the event! 💻
               </FAQAnswer>
             </FAQ>
             
             <FAQ>
               <FAQQuestion>What happens if I don't have a team?</FAQQuestion>
               <FAQAnswer>
-                Don't worry! We have a team formation session on Day 1 where you can meet other participants and form teams. Many successful projects have come from teams that formed during the event.
+              No worries at all! Even without a formal team formation session, many participants connect on the spot and build amazing teams during the event. Great ideas come from spontaneous collaboration! 🤝
               </FAQAnswer>
             </FAQ>
           </FAQContainer>

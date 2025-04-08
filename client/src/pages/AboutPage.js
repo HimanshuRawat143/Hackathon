@@ -160,12 +160,12 @@ const AboutPage = () => {
                 transition={{ duration: 0.4 }}
                 viewport={{ once: true }}
               >
-                <TeamMemberImage src="/images/team-member1.jpg" alt="Team Member 1" />
+                <TeamMemberImage src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Team Member 1" />
                 <TeamMemberInfo>
-                  <TeamMemberName>Alex Johnson</TeamMemberName>
-                  <TeamMemberRole>Event Director</TeamMemberRole>
+                  <TeamMemberName>Anubhav</TeamMemberName>
+                  <TeamMemberRole>Backend Developer</TeamMemberRole>
                   <TeamMemberBio>
-                    Tech entrepreneur with 10+ years of experience organizing hackathons and tech events.
+                    A passionate backend developer with a strong background in building scalable and secure applications.
                   </TeamMemberBio>
                 </TeamMemberInfo>
               </TeamMember>
@@ -177,12 +177,12 @@ const AboutPage = () => {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <TeamMemberImage src="/images/team-member2.jpg" alt="Team Member 2" />
+                <TeamMemberImage src="https://c.pxhere.com/photos/dd/a6/business_man_businessman_corporate_suit_executive_successful_entrepreneur-675843.jpg!d" alt="Team Member 1" />
                 <TeamMemberInfo>
-                  <TeamMemberName>Sarah Chen</TeamMemberName>
-                  <TeamMemberRole>Technical Lead</TeamMemberRole>
+                  <TeamMemberName>Aryan Pal</TeamMemberName>
+                  <TeamMemberRole>Backend Developer</TeamMemberRole>
                   <TeamMemberBio>
-                    Software engineer and former hackathon winner who brings technical expertise to the team.
+                    A passionate backend developer with a strong background in building scalable and secure applications.
                   </TeamMemberBio>
                 </TeamMemberInfo>
               </TeamMember>
@@ -194,12 +194,12 @@ const AboutPage = () => {
                 transition={{ duration: 0.4, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <TeamMemberImage src="/images/team-member3.jpg" alt="Team Member 3" />
+                <TeamMemberImage src="https://th.bing.com/th/id/OIP.a_C9v1H7RBbVyFjU4udThgHaKX?rs=1&pid=ImgDetMain" alt="Team Member 1" />
                 <TeamMemberInfo>
-                  <TeamMemberName>Michael Rodriguez</TeamMemberName>
-                  <TeamMemberRole>Partnerships Manager</TeamMemberRole>
+                  <TeamMemberName>Shivang</TeamMemberName>
+                  <TeamMemberRole>Backend Developer</TeamMemberRole>
                   <TeamMemberBio>
-                    Relationship builder who connects Hack-O-Holic with sponsors, mentors, and industry partners.
+                    A passionate backend developer with a strong background in building scalable and secure applications.
                   </TeamMemberBio>
                 </TeamMemberInfo>
               </TeamMember>
@@ -211,12 +211,12 @@ const AboutPage = () => {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <TeamMemberImage src="/images/team-member4.jpg" alt="Team Member 4" />
+                <TeamMemberImage src="https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgHaLH?rs=1&pid=ImgDetMain" alt="Team Member 1" />
                 <TeamMemberInfo>
-                  <TeamMemberName>Priya Patel</TeamMemberName>
-                  <TeamMemberRole>Community Manager</TeamMemberRole>
+                  <TeamMemberName>Himanshu Rawat</TeamMemberName>
+                  <TeamMemberRole>Backend Developer</TeamMemberRole>
                   <TeamMemberBio>
-                    Community builder focused on creating an inclusive and supportive environment for all participants.
+                    A passionate backend developer with a strong background in building scalable and secure applications.
                   </TeamMemberBio>
                 </TeamMemberInfo>
               </TeamMember>
