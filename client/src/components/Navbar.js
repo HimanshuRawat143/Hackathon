@@ -31,9 +31,9 @@ const Navbar = () => {
   return (
     <NavbarContainer scrolled={scrolled}>
       <NavbarContent>
-        <Logo to="/">
-          <span>Hack-O-Holic</span> 3.0
-        </Logo>
+        <RightLogo>
+          <LogoImage src="/left-logo.png" alt="Right Logo" />
+        </RightLogo>
         <MenuToggle onClick={toggleMenu}>
           <span></span>
           <span></span>
@@ -48,9 +48,6 @@ const Navbar = () => {
           </NavItem>
           <NavItem active={location.pathname === '/schedule'}>
             <NavLink to="/schedule" onClick={closeMenu}>Schedule</NavLink>
-          </NavItem>
-          <NavItem active={location.pathname === '/register'}>
-            <NavLink to="/register" onClick={closeMenu}>Register</NavLink>
           </NavItem>
           <NavItem active={location.pathname === '/contact'}>
             <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
@@ -86,16 +83,23 @@ const NavbarContent = styled.div`
   padding: 0 20px;
 `;
 
-const Logo = styled(Link)`
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  z-index: 1001;
-  
-  span {
-    color: #6e00ff;
-  }
+const LeftLogo = styled.div`
+  display: flex;
+  align-items: center;
+  height: 120px;
+  margin-right: 40px;
+`;
+
+const RightLogo = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-left:px;
+`;
+
+const LogoImage = styled.img`
+  height: 100%;
+  object-fit: contain;
 `;
 
 const MenuToggle = styled.div`

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import VideoBackground from '../components/VideoBackground';
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ const ContactPage = () => {
   });
   
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,14 +26,38 @@ const ContactPage = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real application, you would send the form data to your backend here
-    console.log('Form submitted:', formData);
-    setFormSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+    setIsLoading(true);
+    setError('');
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message
+    };
+
+    emailjs.send(
+      'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+      'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+      templateParams,
+      'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      setFormSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    })
+    .catch((err) => {
+      console.error('FAILED...', err);
+      setError('Failed to send message. Please try again later.');
+    })
+    .finally(() => {
+      setIsLoading(false);
     });
   };
   
@@ -68,7 +95,7 @@ const ContactPage = () => {
                   </ContactIcon>
                   <ContactDetails>
                     <ContactLabel>Email</ContactLabel>
-                    <ContactValue>info@hackoholic3.com</ContactValue>
+                    <ContactValue>Hackaholic3.0.codev@gmail.com</ContactValue>
                   </ContactDetails>
                 </ContactMethod>
                 
@@ -200,22 +227,7 @@ const ContactPage = () => {
             </ContactForm>
           </ContactContainer>
         </ContactSection>
-        
-        <MapSection>
-          <MapContainer>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3526.486990603764!2d78.0000469!3d30.273337500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092b0015535ef7%3A0xf8ce82ad5db4a165!2sGraphic%20era%20Hill%20University!5e1!3m2!1sen!2sin!4v1744046651471!5m2!1sen!2sin" 
-              width="100%" 
-              height="450" 
-              style={{ border: 0 }} 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Hack-O-Holic 3.0 Location"
-            ></iframe>
-          </MapContainer>
-        </MapSection>
-        
+      
         <FAQSection>
           <SectionTitle>Frequently Asked Questions</SectionTitle>
           <FAQContainer>

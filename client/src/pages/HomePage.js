@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,26 @@ import VideoBackground from '../components/VideoBackground';
 import HackathonTimeline from '../components/HackathonTimeline';
 
 const HomePage = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videos = [
+    { id: 1, url: '/creativityVideo1.mp4', title: 'Promo Video 1' },
+    { id: 2, url: '/creativityVideo2.mp4', title: 'Promo Video 2' },
+    { id: 3, url: '/creativityVideo3.mp4', title: 'Promo Video 3' },
+  ];
+
+  const nextVideo = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex - 1 + videos.length) % videos.length);
+  };
+
+  const handleRegisterClick = (e) => {
+    e.preventDefault();
+    window.open('https://forms.gle/aB1GR2X171ZWMSNc9', '_blank');
+  };
+
   return (
     <>
       <VideoBackground />
@@ -23,7 +43,7 @@ const HomePage = () => {
               Build, collaborate, and transform your ideas into reality.
             </HeroDescription>
             <HeroButtons>
-              <PrimaryButton to="/register">Register Now</PrimaryButton>
+              <PrimaryButton onClick={handleRegisterClick}>Register Now</PrimaryButton>
               <SecondaryButton to="/about">Learn More</SecondaryButton>
             </HeroButtons>
             <EventDetails>
@@ -54,7 +74,35 @@ const HomePage = () => {
           </svg>
         </ScrollIndicator>
       </HeroSection>
-      
+      <CreativitySection>
+        <SectionTitle>Our Creativity</SectionTitle>
+        <VideoContainer>
+          <VideoGrid>
+            {videos.map((video, index) => (
+              <VideoItem key={video.id} isActive={index === currentVideoIndex}>
+                <VideoPlayer
+                  src={video.url}
+                  title={video.title}
+                  controls
+                  playsInline
+                />
+              </VideoItem>
+            ))}
+          </VideoGrid>
+          <MobileControls>
+            <ControlButton onClick={prevVideo}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </ControlButton>
+            <ControlButton onClick={nextVideo}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </ControlButton>
+          </MobileControls>
+        </VideoContainer>
+      </CreativitySection>
       <AboutSection>
         <SectionTitle>About Hack-O-Holic 3.0</SectionTitle>
         <AboutContent>
@@ -91,37 +139,6 @@ const HomePage = () => {
       <TimelineSection>
         <HackathonTimeline />
       </TimelineSection>
-      
-      {/* <SponsorsSection>
-        <SectionTitle>Our Sponsors</SectionTitle>
-        <SponsorDescription>
-          Hack-O-Holic 3.0 is proudly supported by industry leaders who believe in nurturing innovation and talent.
-        </SponsorDescription>
-        <SponsorsGrid>
-          <SponsorLogo>
-            <img src="/images/sponsor1.png" alt="Sponsor 1" />
-          </SponsorLogo>
-          <SponsorLogo>
-            <img src="/images/sponsor2.png" alt="Sponsor 2" />
-          </SponsorLogo>
-          <SponsorLogo>
-            <img src="/images/sponsor3.png" alt="Sponsor 3" />
-          </SponsorLogo>
-          <SponsorLogo>
-            <img src="/images/sponsor4.png" alt="Sponsor 4" />
-          </SponsorLogo>
-          <SponsorLogo>
-            <img src="/images/sponsor5.png" alt="Sponsor 5" />
-          </SponsorLogo>
-          <SponsorLogo>
-            <img src="/images/sponsor6.png" alt="Sponsor 6" />
-          </SponsorLogo>
-        </SponsorsGrid>
-        <SponsorCTA>
-          <p>Interested in sponsoring Hack-O-Holic 3.0?</p>
-          <PrimaryButton to="/contact">Become a Sponsor</PrimaryButton>
-        </SponsorCTA>
-      </SponsorsSection> */}
       
       <RegistrationSection>
         <RegistrationContent>
@@ -161,7 +178,7 @@ const HomePage = () => {
                 <span>Exciting Cash Prizes</span>
               </FeatureItem>
             </RegistrationFeatures>
-            <PrimaryButton to="/register">Register Now</PrimaryButton>
+            <PrimaryButton onClick={handleRegisterClick}>Register Now</PrimaryButton>
           </RegistrationText>
           <RegistrationImage src="/registeration.png" alt="Register for Hackathon" />
         </RegistrationContent>
@@ -232,7 +249,7 @@ const HeroButtons = styled.div`
   }
 `;
 
-const PrimaryButton = styled(Link)`
+const PrimaryButton = styled.button`
   display: inline-block;
   padding: 14px 32px;
   background: linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%);
@@ -248,7 +265,7 @@ const PrimaryButton = styled(Link)`
   
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(110, 0, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(110, 0, 255, 0.4);
   }
 `;
 
@@ -406,65 +423,6 @@ const TimelineSection = styled.section`
   z-index: 2;
 `;
 
-const SponsorsSection = styled.section`
-  padding: 100px 20px;
-  background-color: rgba(10, 10, 10, 0.8);
-  position: relative;
-  z-index: 2;
-  text-align: center;
-`;
-
-const SponsorDescription = styled.p`
-  max-width: 700px;
-  margin: 0 auto 50px;
-  color: #b0b0b0;
-  line-height: 1.6;
-`;
-
-const SponsorsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto 50px;
-`;
-
-const SponsorLogo = styled.div`
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  
-  img {
-    max-width: 100%;
-    max-height: 80px;
-    filter: grayscale(100%) brightness(1.2);
-    transition: all 0.3s ease;
-  }
-  
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-    
-    img {
-      filter: grayscale(0%);
-    }
-  }
-`;
-
-const SponsorCTA = styled.div`
-  margin-top: 40px;
-  
-  p {
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-  }
-`;
-
 const RegistrationSection = styled.section`
   padding: 100px 20px;
   background-color: rgba(10, 10, 10, 0.9);
@@ -524,6 +482,86 @@ const RegistrationImage = styled.img`
   
   @media (max-width: 992px) {
     width: 100%;
+  }
+`;
+
+const CreativitySection = styled.section`
+  padding: 100px 20px;
+  background: #0a0a0a;
+`;
+
+const VideoContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+`;
+
+const VideoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+  justify-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const VideoItem = styled.div`
+  position: relative;
+  padding-top: 177.78%; /* 9:16 Aspect Ratio for portrait */
+  display: ${props => props.isActive ? 'block' : 'none'};
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+
+  @media (min-width: 769px) {
+    display: block;
+    max-width: 250px;
+  }
+`;
+
+const VideoPlayer = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #000;
+`;
+
+const MobileControls = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5px;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
+
+const ControlButton = styled.button`
+  background: linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    color: white;
   }
 `;
 
