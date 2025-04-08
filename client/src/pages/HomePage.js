@@ -510,7 +510,7 @@ const VideoGrid = styled.div`
 
 const VideoItem = styled.div`
   position: relative;
-  padding-top: 177.78%; /* 9:16 Aspect Ratio for portrait */
+  padding-top: 140.78%; /* 9:16 Aspect Ratio for portrait */
   display: ${props => props.isActive ? 'block' : 'none'};
   width: 100%;
   max-width: 300px;
