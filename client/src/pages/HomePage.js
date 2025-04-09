@@ -71,8 +71,7 @@ const HomePage = () => {
             <HeroSubtitle>Welcome to</HeroSubtitle>
             <HeroTitle>Hack-O-Holic <span>3.0</span></HeroTitle>
             <HeroDescription>
-              Join the ultimate coding adventure where innovation meets technology.
-              Build, collaborate, and transform your ideas into reality.
+            Join the coding adventure — innovate, collaborate, and build your ideas.
             </HeroDescription>
             <HeroButtons>
               <PrimaryButton onClick={handleRegisterClick}>Register Now</PrimaryButton>
@@ -86,7 +85,7 @@ const HomePage = () => {
                   <line x1="8" y1="2" x2="8" y2="6"></line>
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-                <span>April 15-17, 2025</span>
+                <span>April 26-27, 2025</span>
               </EventDetail>
               <EventDetail>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -157,9 +156,8 @@ const HomePage = () => {
         <AboutContent>
           <AboutText>
             <p>
-              Hack-O-Holic 3.0 is more than just a hackathon; it's a celebration of innovation, 
-              creativity, and technological prowess. We bring together the brightest minds to 
-              collaborate, compete, and create solutions that address real-world challenges.
+            Hack-O-Holic 3.0 is more than a hackathon, it's a celebration of innovation, creativity, and technology.
+            It brings bright minds together to collaborate, compete, and solve real-world problems.
             </p>
             <AboutStats>
               <StatItem>
@@ -207,8 +205,7 @@ const HomePage = () => {
           <RegistrationText>
             <SectionTitle>Ready to Join?</SectionTitle>
             <p>
-              Don't miss this opportunity to be part of Hack-O-Holic 3.0. 
-              Register now and secure your spot in the most anticipated hackathon of the year.
+            Register now to secure your spot in Hackoholic 3.0.
             </p>
             <RegistrationFeatures>
               <FeatureItem>
