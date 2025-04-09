@@ -32,7 +32,7 @@ const Navbar = () => {
     <NavbarContainer scrolled={scrolled}>
       <NavbarContent>
         <RightLogo>
-          <LogoImage src="/left-logo.png" alt="Right Logo" />
+          <LogoImage src="/logooo.png" alt="RightLogo" />
         </RightLogo>
         <MenuToggle onClick={toggleMenu}>
           <span></span>
@@ -86,21 +86,13 @@ const NavbarContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-`;
-
-const LeftLogo = styled.div`
-  display: flex;
-  align-items: center;
-  height: 120px;
-  margin-right: 40px;
+  padding: 0 5px;
 `;
 
 const RightLogo = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
-  margin-left:px;
+  height: 80px;
 `;
 
 const LogoImage = styled.img`
