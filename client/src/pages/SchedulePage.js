@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import VideoBackground from '../components/VideoBackground';
 
 const SchedulePage = () => {
   const [activeDay, setActiveDay] = useState(1);
+  const [timeRemaining, setTimeRemaining] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  const [currentStatus, setCurrentStatus] = useState('');
 
   const scheduleData = {
     1: [
@@ -42,6 +49,81 @@ const SchedulePage = () => {
     ]
   };
 
+  // Define the start dates for each day of the hackathon
+  const hackathonDates = {
+    1: new Date('April 15, 2025 08:00:00'),
+    2: new Date('April 16, 2025 08:00:00'),
+    3: new Date('April 17, 2025 08:00:00'),
+    end: new Date('April 17, 2025 21:30:00') // End of celebration dinner
+  };
+
+  useEffect(() => {
+    const calculateTimeRemaining = () => {
+      const now = new Date();
+      
+      // Before hackathon starts
+      if (now < hackathonDates[1]) {
+        const difference = hackathonDates[1] - now;
+        setTimeRemaining(getTimeComponents(difference));
+        setCurrentStatus('Countdown to Hack-O-Holic 3.0');
+        return;
+      }
+      
+      // During Day 1
+      if (now >= hackathonDates[1] && now < hackathonDates[2]) {
+        const difference = hackathonDates[2] - now;
+        setTimeRemaining(getTimeComponents(difference));
+        setCurrentStatus('Day 1 In Progress');
+        if (activeDay !== 1) setActiveDay(1);
+        return;
+      }
+      
+      // During Day 2
+      if (now >= hackathonDates[2] && now < hackathonDates[3]) {
+        const difference = hackathonDates[3] - now;
+        setTimeRemaining(getTimeComponents(difference));
+        setCurrentStatus('Day 2 In Progress');
+        if (activeDay !== 2) setActiveDay(2);
+        return;
+      }
+      
+      // During Day 3
+      if (now >= hackathonDates[3] && now < hackathonDates.end) {
+        const difference = hackathonDates.end - now;
+        setTimeRemaining(getTimeComponents(difference));
+        setCurrentStatus('Day 3 In Progress');
+        if (activeDay !== 3) setActiveDay(3);
+        return;
+      }
+      
+      // After hackathon ends
+      if (now >= hackathonDates.end) {
+        setTimeRemaining({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setCurrentStatus('Hack-O-Holic 3.0 Completed');
+        return;
+      }
+    };
+
+    const getTimeComponents = (ms) => {
+      // Calculate days, hours, minutes and seconds
+      const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+      
+      return { days, hours, minutes, seconds };
+    };
+
+    // Calculate time remaining immediately
+    calculateTimeRemaining();
+    
+    // Set up interval to update the countdown every second
+    const interval = setInterval(calculateTimeRemaining, 1000);
+    
+    // Clean up interval
+    return () => clearInterval(interval);
+  }, [activeDay]);
+
   return (
     <>
       <VideoBackground />
@@ -54,6 +136,32 @@ const SchedulePage = () => {
           >
             <PageTitle>Event Schedule</PageTitle>
             <PageSubtitle>Your roadmap to Hack-O-Holic 3.0</PageSubtitle>
+            
+            {/* Countdown Timer */}
+            <CountdownContainer>
+              <CountdownStatus>{currentStatus}</CountdownStatus>
+              <CountdownTimer>
+                <TimeUnit>
+                  <TimeNumber>{timeRemaining.days}</TimeNumber>
+                  <TimeLabel>Days</TimeLabel>
+                </TimeUnit>
+                <TimeSeparator>:</TimeSeparator>
+                <TimeUnit>
+                  <TimeNumber>{timeRemaining.hours.toString().padStart(2, '0')}</TimeNumber>
+                  <TimeLabel>Hours</TimeLabel>
+                </TimeUnit>
+                <TimeSeparator>:</TimeSeparator>
+                <TimeUnit>
+                  <TimeNumber>{timeRemaining.minutes.toString().padStart(2, '0')}</TimeNumber>
+                  <TimeLabel>Minutes</TimeLabel>
+                </TimeUnit>
+                <TimeSeparator>:</TimeSeparator>
+                <TimeUnit>
+                  <TimeNumber>{timeRemaining.seconds.toString().padStart(2, '0')}</TimeNumber>
+                  <TimeLabel>Seconds</TimeLabel>
+                </TimeUnit>
+              </CountdownTimer>
+            </CountdownContainer>
           </motion.div>
         </HeroSection>
         
@@ -223,6 +331,7 @@ const SchedulePage = () => {
   );
 };
 
+// Original styled components...
 const PageContainer = styled.div`
   position: relative;
   z-index: 2;
@@ -260,6 +369,77 @@ const PageSubtitle = styled.p`
   color: #ffffff;
 `;
 
+// New countdown timer styled components
+const CountdownContainer = styled.div`
+  margin-top: 40px;
+  background: rgba(26, 26, 26, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid rgba(110, 0, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(110, 0, 255, 0.1);
+`;
+
+const CountdownStatus = styled.div`
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ff00e6;
+  font-weight: 600;
+`;
+
+const CountdownTimer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+  @media (max-width: 576px) {
+    gap: 5px;
+  }
+`;
+
+const TimeUnit = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const TimeNumber = styled.div`
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(110, 0, 255, 0.1);
+  border-radius: 10px;
+  min-width: 70px;
+  padding: 10px;
+  text-align: center;
+  
+  @media (max-width: 576px) {
+    font-size: 1.8rem;
+    min-width: 50px;
+    padding: 8px;
+  }
+`;
+
+const TimeLabel = styled.div`
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-top: 5px;
+`;
+
+const TimeSeparator = styled.div`
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(110, 0, 255, 0.6);
+  margin-top: -10px;
+  
+  @media (max-width: 576px) {
+    font-size: 1.8rem;
+  }
+`;
+
+// Original component styles
 const ScheduleSection = styled.section`
   max-width: 1200px;
   margin: 0 auto;
