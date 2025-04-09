@@ -109,7 +109,7 @@ const HackathonTimeline = () => {
         >
           <TimelineNumber>02</TimelineNumber>
           <TimelineContent>
-            <TimelineItemTitle>Round 2: 24 Hours Hackathon</TimelineItemTitle>
+            <TimelineItemTitle>Round 2:   24 Hours Hackathon</TimelineItemTitle>
             <TimelineItemDescription>
             <ul>
                 <li>Teams will have 24 hours of nonstop innovation and developing solutions.</li>
