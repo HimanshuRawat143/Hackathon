@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 
 const HackathonTimeline = () => {
   const [ref1, inView1] = useInView({
@@ -51,8 +52,8 @@ const HackathonTimeline = () => {
     >
       <TimelineHeading>Hackathon Journey</TimelineHeading>
       <TimelineDescription>
-        Our hackathon is structured in three exciting rounds to bring out the best in you.
-        From ideation to final presentation, we've designed a comprehensive journey.
+      Our hackathon features three exciting rounds that take you from ideation to final 
+      presentation, offering a complete journey to unleash your potential.
       </TimelineDescription>
       
       <Timeline>
@@ -65,20 +66,16 @@ const HackathonTimeline = () => {
         >
           <TimelineNumber>01</TimelineNumber>
           <TimelineContent>
-            <TimelineItemTitle>Ideation & Presentation Round</TimelineItemTitle>
+            <TimelineItemTitle>Round 1: Registration Round</TimelineItemTitle>
             <TimelineItemDescription>
-              Present your innovative ideas to our panel of judges. This is where you showcase your 
-              vision, creativity, and the problem you're aiming to solve. The top teams with the most 
-              promising ideas will advance to the next round.
+              <ul>
+                <li>Submit your presentation along with a video explaining your idea.</li>
+                <li>Showcase your creativity and problem-solving approach.</li>
+                <li>The most promising ideas will be selected to move on to the next round.</li>
+              </ul>
             </TimelineItemDescription>
             <TimelineDetails>
-              <TimelineDetailItem>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <span>Duration: 2 Hours</span>
-              </TimelineDetailItem>
+            
               <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -86,15 +83,18 @@ const HackathonTimeline = () => {
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
-                <span>Team Size: 2-4 Members</span>
+                <span>Team Size: 3-4 Members</span>
               </TimelineDetailItem>
-              <TimelineDetailItem>
+              {/* <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 11 12 14 22 4"></polyline>
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                 </svg>
                 <span>Selection: Top 50% Teams</span>
-              </TimelineDetailItem>
+              </TimelineDetailItem> */}
+              <Link to="/certificate" style={{ textDecoration: 'none' }}>
+                <PrimaryButton as="div">Download Certificate</PrimaryButton>
+              </Link>
             </TimelineDetails>
           </TimelineContent>
         </TimelineItem>
@@ -109,11 +109,13 @@ const HackathonTimeline = () => {
         >
           <TimelineNumber>02</TimelineNumber>
           <TimelineContent>
-            <TimelineItemTitle>Development & Prototype Round</TimelineItemTitle>
+            <TimelineItemTitle>Round 2: 24 Hours Hackathon</TimelineItemTitle>
             <TimelineItemDescription>
-              This is where the real action happens! Teams will have 24 hours to develop a working 
-              prototype of their solution. Mentors will be available to guide you through technical 
-              challenges. Show us your coding skills, teamwork, and problem-solving abilities.
+            <ul>
+                <li>Teams will have 24 hours of nonstop innovation and developing solutions.</li>
+                <li>Fun events and games to keep the energy high.</li>
+                <li>A chance to win exciting rewards and prizes.</li>
+              </ul>
             </TimelineItemDescription>
             <TimelineDetails>
               <TimelineDetailItem>
@@ -123,19 +125,19 @@ const HackathonTimeline = () => {
                 </svg>
                 <span>Duration: 24 Hours</span>
               </TimelineDetailItem>
-              <TimelineDetailItem>
+              {/* <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
                 <span>Resources: Provided</span>
-              </TimelineDetailItem>
+              </TimelineDetailItem> */}
               <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 11 12 14 22 4"></polyline>
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                 </svg>
-                <span>Selection: Top 10 Teams</span>
+                <span>Selection: Top 3 Teams</span>
               </TimelineDetailItem>
             </TimelineDetails>
           </TimelineContent>
@@ -150,34 +152,36 @@ const HackathonTimeline = () => {
         >
           <TimelineNumber>03</TimelineNumber>
           <TimelineContent>
-            <TimelineItemTitle>Final Presentation & Demo Round</TimelineItemTitle>
+            <TimelineItemTitle>Round 3: Final Round                                                                                                                                            The Grand Finale!
+            </TimelineItemTitle>
             <TimelineItemDescription>
-              The grand finale! The top 10 teams will present their completed projects to a panel of 
-              industry experts and investors. This is your chance to shine and showcase the full 
-              potential of your innovation. Winners will be selected based on innovation, execution, 
-              impact, and presentation.
+            <ul>
+                <li>Winners will receive exciting rewards.</li>
+                <li>Special recognition and felicitation for the winners.</li>
+                <li>Closing ceremony to wrap up the event.</li>
+              </ul>
             </TimelineItemDescription>
             <TimelineDetails>
-              <TimelineDetailItem>
+              {/* <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
                 <span>Duration: 3 Hours</span>
-              </TimelineDetailItem>
+              </TimelineDetailItem> */}
               <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="8" r="7"></circle>
                   <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                 </svg>
-                <span>Prizes: $10,000+ Pool</span>
+                <span>Prizes: 25,000 Pool</span>
               </TimelineDetailItem>
               <TimelineDetailItem>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
-                <span>Incubation Opportunity</span>
+                <span>Prize Distribution</span>
               </TimelineDetailItem>
             </TimelineDetails>
           </TimelineContent>
@@ -186,6 +190,26 @@ const HackathonTimeline = () => {
     </TimelineContainer>
   );
 };
+
+const PrimaryButton = styled.button`
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(110, 0, 255, 0.3);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(110, 0, 255, 0.4);
+  }
+`;
 
 const TimelineContainer = styled.div`
   padding: 80px 20px;
@@ -311,10 +335,18 @@ const TimelineItemTitle = styled.h3`
   color: #ffffff;
 `;
 
-const TimelineItemDescription = styled.p`
-  color: #b0b0b0;
-  margin-bottom: 20px;
-  line-height: 1.6;
+const TimelineItemDescription = styled.div`
+  color: #ddd;
+  margin-top: 10px;
+  ul {
+    padding-left: 20px;
+    margin: 15px;
+    list-style-type: disc;
+  }
+  li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
 `;
 
 const TimelineDetails = styled.div`

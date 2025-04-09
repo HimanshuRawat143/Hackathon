@@ -76,7 +76,7 @@ const CertificatePage = () => {
                 <QuestionTitle>Have Questions?</QuestionTitle>
                 <QuestionText>
                   If you have any questions about certificates or need assistance, please contact us at 
-                  <EmailLink href="mailto:certificates@hackoholic.com">certificates@hackoholic.com</EmailLink>
+                  <EmailLink href="mailto:Hackaholic3.0.codev@gmail.com">Hackaholic3.0.codev@gmail.com</EmailLink>
                 </QuestionText>
               </QuestionsContainer>
             </InfoSection>
