@@ -18,9 +18,10 @@ const HomePage = () => {
   ];
   
   const aboutImages = [
-    { id: 1, url: 'https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2012/08/hackathon.jpg?fit=1024%2C683&quality=50&strip=all&ssl=1', alt: 'Hackathon participants' },
-    { id: 2, url: 'https://empowerers.city/wp-content/uploads/2019/07/Hackathon-2-dcdcdc-1024x769.jpg', alt: 'Hackathon collaboration' },
-    { id: 3, url: 'https://static.vecteezy.com/system/resources/thumbnails/004/580/904/small_2x/hackathon-concept-with-icon-set-with-big-word-or-text-on-center-free-vector.jpg', alt: 'Award ceremony' },
+    { id: 1, url: '/Image1.jpg', alt: 'Hackathon participants' },
+    { id: 2, url: '/Image2.jpg', alt: 'Hackathon collaboration' },
+    { id: 3, url: '/Image3.jpg', alt: 'Award ceremony' },
+    { id: 4, url: '/Image4.jpg', alt: 'Award ceremony' },
   ];
 
   // Initialize video refs
