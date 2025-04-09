@@ -87,12 +87,22 @@ const NavbarContent = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 5px;
+
+  @media (max-width: 768px) {
+    flex-direction: row-reverse; /* Logo on right, toggle on left */
+  }
 `;
+
 
 const RightLogo = styled.div`
   display: flex;
   align-items: center;
   height: 80px;
+  margin-right: 10px; /* margin from the right edge on mobile */
+
+  @media (min-width: 769px) {
+    margin-right: 0;
+  }
 `;
 
 const LogoImage = styled.img`
@@ -126,23 +136,24 @@ const MenuToggle = styled.div`
 const NavMenu = styled.ul`
   display: flex;
   list-style: none;
-  
+
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 70%;
+    left: 10px; /* margin from the left */
+    width: calc(70% - 10px); /* margin from the right */
     height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(-100%)'}; /* changed direction */
     transition: transform 0.3s ease;
     z-index: 1000;
   }
 `;
+
 
 const NavItem = styled.li`
   margin: 0 15px;
