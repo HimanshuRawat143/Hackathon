@@ -227,43 +227,6 @@ const ContactPage = () => {
             </ContactForm>
           </ContactContainer>
         </ContactSection>
-      
-        <FAQSection>
-          <SectionTitle>Frequently Asked Questions</SectionTitle>
-          <FAQContainer>
-            <FAQ>
-              <FAQQuestion>How can I become a sponsor?</FAQQuestion>
-              <FAQAnswer>
-                We offer various sponsorship packages that provide excellent opportunities for brand visibility and talent recruitment. 
-                Please contact our sponsorship team at sponsors@hackoholic3.com for more information.
-              </FAQAnswer>
-            </FAQ>
-            
-            <FAQ>
-              <FAQQuestion>I'm interested in volunteering. How can I help?</FAQQuestion>
-              <FAQAnswer>
-                We welcome volunteers who are passionate about technology and innovation! Please fill out the contact form with the subject 
-                "Volunteer Application" and we'll get back to you with opportunities.
-              </FAQAnswer>
-            </FAQ>
-            
-            <FAQ>
-              <FAQQuestion>Can I speak or host a workshop at the event?</FAQQuestion>
-              <FAQAnswer>
-                Yes! We're always looking for industry experts to share their knowledge. Please send us your proposal 
-                with the subject "Speaker/Workshop Proposal" through the contact form.
-              </FAQAnswer>
-            </FAQ>
-            
-            <FAQ>
-              <FAQQuestion>I have a question that's not answered here. What should I do?</FAQQuestion>
-              <FAQAnswer>
-                Feel free to reach out to us using the contact form or email us directly at info@hackoholic3.com. 
-                We aim to respond to all inquiries within 48 hours.
-              </FAQAnswer>
-            </FAQ>
-          </FAQContainer>
-        </FAQSection>
       </PageContainer>
     </>
   );
