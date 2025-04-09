@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -7,11 +7,41 @@ import HackathonTimeline from '../components/HackathonTimeline';
 
 const HomePage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const videoRefs = useRef([]);
+  
   const videos = [
     { id: 1, url: '/creativityVideo1.mp4', title: 'Promo Video 1' },
     { id: 2, url: '/creativityVideo2.mp4', title: 'Promo Video 2' },
     { id: 3, url: '/creativityVideo3.mp4', title: 'Promo Video 3' },
   ];
+  
+  const aboutImages = [
+    { id: 1, url: 'https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2012/08/hackathon.jpg?fit=1024%2C683&quality=50&strip=all&ssl=1', alt: 'Hackathon participants' },
+    { id: 2, url: 'https://empowerers.city/wp-content/uploads/2019/07/Hackathon-2-dcdcdc-1024x769.jpg', alt: 'Hackathon collaboration' },
+    { id: 3, url: 'https://static.vecteezy.com/system/resources/thumbnails/004/580/904/small_2x/hackathon-concept-with-icon-set-with-big-word-or-text-on-center-free-vector.jpg', alt: 'Award ceremony' },
+  ];
+
+  // Initialize video refs
+  useEffect(() => {
+    videoRefs.current = videoRefs.current.slice(0, videos.length);
+  }, [videos.length]);
+
+  // Auto-advance slideshow for about images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % aboutImages.length);
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, [aboutImages.length]);
+  
+  // Handle video ended event on mobile
+  const handleVideoEnded = () => {
+    if (window.innerWidth <= 768) {
+      nextVideo();
+    }
+  };
 
   const nextVideo = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
@@ -44,7 +74,7 @@ const HomePage = () => {
             </HeroDescription>
             <HeroButtons>
               <PrimaryButton onClick={handleRegisterClick}>Register Now</PrimaryButton>
-              <SecondaryButton to="/about">Learn More</SecondaryButton>
+              <SecondaryButton to="/events">Hackathon Events</SecondaryButton>
             </HeroButtons>
             <EventDetails>
               <EventDetail>
@@ -81,11 +111,28 @@ const HomePage = () => {
             {videos.map((video, index) => (
               <VideoItem key={video.id} isActive={index === currentVideoIndex}>
                 <VideoPlayer
+                  ref={el => videoRefs.current[index] = el}
                   src={video.url}
                   title={video.title}
-                  controls
+                  autoPlay
+                  muted
                   playsInline
+                  loop={window.innerWidth > 768}
+                  onEnded={handleVideoEnded}
                 />
+                <VideoControls>
+                  <MuteButton onClick={() => {
+                    if (videoRefs.current[index]) {
+                      videoRefs.current[index].muted = !videoRefs.current[index].muted;
+                    }
+                  }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                  </MuteButton>
+                </VideoControls>
               </VideoItem>
             ))}
           </VideoGrid>
@@ -112,11 +159,6 @@ const HomePage = () => {
               creativity, and technological prowess. We bring together the brightest minds to 
               collaborate, compete, and create solutions that address real-world challenges.
             </p>
-            <p>
-              Whether you're a seasoned developer, a creative designer, or a visionary entrepreneur, 
-              Hack-O-Holic 3.0 offers you the platform to showcase your skills, learn from industry 
-              experts, and potentially turn your ideas into reality.
-            </p>
             <AboutStats>
               <StatItem>
                 <StatNumber>500+</StatNumber>
@@ -132,7 +174,25 @@ const HomePage = () => {
               </StatItem>
             </AboutStats>
           </AboutText>
-          <AboutImage src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2012/08/hackathon.jpg?fit=1024%2C683&quality=50&strip=all&ssl=1" alt="Hackathon participants" />
+          <AboutImageWrapper>
+            {aboutImages.map((image, index) => (
+              <AboutImage 
+                key={image.id} 
+                src={image.url} 
+                alt={image.alt}
+                active={index === currentImageIndex}
+              />
+            ))}
+            <ImageIndicators>
+              {aboutImages.map((_, index) => (
+                <ImageIndicator 
+                  key={index} 
+                  active={index === currentImageIndex} 
+                  onClick={() => setCurrentImageIndex(index)}
+                />
+              ))}
+            </ImageIndicators>
+          </AboutImageWrapper>
         </AboutContent>
       </AboutSection>
       
@@ -334,7 +394,7 @@ const ScrollIndicator = styled.div`
 `;
 
 const AboutSection = styled.section`
-  padding: 100px 20px;
+  padding: 10px 20px;
   background-color: rgba(10, 10, 10, 0.8);
   position: relative;
   z-index: 2;
@@ -385,7 +445,9 @@ const AboutStats = styled.div`
   
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 15px;
+    gap: 10px;  
   }
 `;
 
@@ -405,14 +467,55 @@ const StatLabel = styled.div`
   color: #ffffff;
 `;
 
-const AboutImage = styled.img`
-  flex: 1;
-  max-width: 500px;
-  border-radius: 15px;
+const AboutImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   
-  @media (max-width: 992px) {
-    width: 100%;
+  @media (min-width: 769px) {
+    width: 45%;
+    height: 350px;
+  }
+`;
+
+const AboutImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: ${props => (props.active ? 1 : 0)};
+  transition: opacity 1s ease;
+`;
+
+const ImageIndicators = styled.div`
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+`;
+
+const ImageIndicator = styled.button`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: ${props => props.active 
+    ? 'linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%)' 
+    : 'rgba(255, 255, 255, 0.5)'};
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.2);
   }
 `;
 
@@ -522,12 +625,39 @@ const VideoItem = styled.div`
   }
 `;
 
+const VideoControls = styled.div`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+`;
+
+const MuteButton = styled.button`
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: white;
+  
+  &:hover {
+    background: rgba(110, 0, 255, 0.7);
+  }
+`;
+
 const VideoPlayer = styled.video`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 85%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
   background: #000;
