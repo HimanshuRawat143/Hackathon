@@ -14,6 +14,7 @@ const Footer = () => {
             Join us for the most innovative hackathon of the year. Build, collaborate, and transform your ideas into reality.
           </FooterDescription>
           <SocialLinks>
+          <FooterLinkTitle>Don't Forget to Subscribe: </FooterLinkTitle>
             <SocialLink href="https://www.instagram.com/codev.gehu" target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -71,7 +72,7 @@ const Footer = () => {
       </FooterContent>
       
       <FooterBottom>
-        <Copyright>© {new Date().getFullYear()} Hack-O-Holic 3.O | All rights reserved.</Copyright>
+        <Copyright>© {new Date().getFullYear()} Hack-O-Holic 3.O Powered by CodeV | All rights reserved.</Copyright>
         <FooterBottomLinks>
           <FooterBottomLink to="/privacy">Privacy Policy</FooterBottomLink>
           <FooterBottomLink to="/terms">Terms of Service</FooterBottomLink>
