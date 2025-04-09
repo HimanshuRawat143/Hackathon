@@ -32,17 +32,7 @@ const Footer = () => {
           </SocialLinks>
         </FooterSection>
         
-        <FooterLinksContainer>
-          <FooterLinkSection>
-            <FooterLinkTitle>Quick Links</FooterLinkTitle>
-            <FooterLink to="/">Home</FooterLink>
-            <FooterLink to="/about">About</FooterLink>
-            <FooterLink to="/events">Events</FooterLink>
-            <FooterLink to="/schedule">Schedule</FooterLink>
-            <FooterLink to="/certificate">Certificate</FooterLink>
-            <FooterLink to="/contact">Contact</FooterLink>
-          </FooterLinkSection>
-          
+        <FooterLinksContainer>          
           <FooterLinkSection>
             <FooterLinkTitle>Contact Us</FooterLinkTitle>
             <ContactInfo>
