@@ -18,10 +18,10 @@ const HomePage = () => {
   ];
   
   const aboutImages = [
-    { id: 1, url: '/Image1.jpg', alt: 'Hackathon participants' },
-    { id: 2, url: '/Image2.jpg', alt: 'Hackathon collaboration' },
-    { id: 3, url: '/Image3.jpg', alt: 'Award ceremony' },
-    { id: 4, url: '/Image4.jpg', alt: 'Award ceremony' },
+    { id: 1, url: '/Image1.JPG', alt: 'Hackathon participants' },
+    { id: 2, url: '/Image2.JPG', alt: 'Hackathon collaboration' },
+    { id: 3, url: '/Image3.JPG', alt: 'Award ceremony' },
+    { id: 4, url: '/Image4.JPG', alt: 'Award ceremony' },
   ];
 
   // Initialize video refs
