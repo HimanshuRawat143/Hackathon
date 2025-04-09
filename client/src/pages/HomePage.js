@@ -11,9 +11,10 @@ const HomePage = () => {
   const videoRefs = useRef([]);
   
   const videos = [
-    { id: 1, url: '/creativityVideo1.mp4', title: 'Promo Video 1' },
-    { id: 2, url: '/creativityVideo2.mp4', title: 'Promo Video 2' },
-    { id: 3, url: '/creativityVideo3.mp4', title: 'Promo Video 3' },
+    { id: 1, url: '/Promotion_video3.mp4', title: 'Promo Video 1' },
+    { id: 2, url: '/creativityVideo1.mp4', title: 'Promo Video 2' },
+    { id: 3, url: '/creativityVideo2.mp4', title: 'Promo Video 3' },
+    { id: 4, url: '/creativityVideo3.mp4', title: 'Promo Video 4' },
   ];
   
   const aboutImages = [

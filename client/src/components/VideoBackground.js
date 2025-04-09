@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const VideoBackground = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const videoRefs = [useRef(null), useRef(null), useRef(null)];
+  const videoRefs = [useRef(null), useRef(null), useRef(null),useRef(null),useRef(null)];
   const videoSources = [
-    '/promotion.mp4',
-    '/promotion.mp4',
-    '/promotion.mp4'
+    '/creativityVideo3.mp4',
+    '/Promotion_video3.mp4',
+    '/creativityVideo1.mp4',
+    '/creativityVideo2.mp4',
   ];
   
   useEffect(() => {
