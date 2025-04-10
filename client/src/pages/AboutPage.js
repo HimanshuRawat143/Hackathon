@@ -149,6 +149,62 @@ const AboutPage = () => {
               </StoryGrid>
             </SectionContent>
           </SectionContainer>
+
+          <SectionContainer>
+            <SectionTitle>Our Guide </SectionTitle>
+            <TeamGrid>
+              <TeamMember
+                as={motion.div}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <TeamMemberImage src="/VCsir.jpg" alt="Team Member 1" />
+                <TeamMemberInfo>
+                  <TeamMemberName>Prof.(Dr.) Rakesh Kumar Sharma</TeamMemberName>
+                  <TeamMemberRole>Vice Chancellor, GEHU Dehradun</TeamMemberRole>
+                  <TeamMemberBio>
+                  An inspiring academic visionary and seasoned leader, driving innovation and excellence at the helm of Graphic Era Hill University.
+                  </TeamMemberBio>
+                </TeamMemberInfo>
+              </TeamMember>
+              
+              <TeamMember
+                as={motion.div}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <TeamMemberImage src="/HOD_sir.jpg" alt="Team Member 1" />
+                <TeamMemberInfo>
+                  <TeamMemberName>Dr. Anupam Singh</TeamMemberName>
+                  <TeamMemberRole>HOD, Department of Computer Science and Engineering, GEHU Dehradun</TeamMemberRole>
+                  <TeamMemberBio>
+                  A dedicated academic and departmental leader, committed to fostering growth, learning, and innovation within the institution.
+                  </TeamMemberBio>
+                </TeamMemberInfo>
+              </TeamMember>
+              
+              <TeamMember
+                as={motion.div}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <TeamMemberImage src="/Sushant_sir.jpg" alt="Team Member 1" />
+                <TeamMemberInfo>
+                  <TeamMemberName>Mr. Sushant Chamoli</TeamMemberName>
+                  <TeamMemberRole>Assistant Professor, GEHU</TeamMemberRole>
+                  <TeamMemberBio>
+                  A supportive mentor and guiding force behind the club’s growth, encouraging student innovation and teamwork.
+                  </TeamMemberBio>
+                </TeamMemberInfo>
+              </TeamMember>
+            </TeamGrid>
+          </SectionContainer>
           
           <SectionContainer>
             <SectionTitle>The Team Behind Hack-O-Holic</SectionTitle>
