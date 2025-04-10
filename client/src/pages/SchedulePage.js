@@ -227,9 +227,7 @@ const SchedulePage = () => {
                 </InfoIcon>
                 <InfoTitle>Dates</InfoTitle>
                 <InfoContent>
-                  <p>April 15-17, 2025</p>
-                  <p>Registration opens: March 1, 2025</p>
-                  <p>Registration closes: April 5, 2025</p>
+                  <p>April 26-27, 2025</p>
                 </InfoContent>
               </InfoCard>
               
@@ -244,8 +242,7 @@ const SchedulePage = () => {
                 </InfoIcon>
                 <InfoTitle>Participation</InfoTitle>
                 <InfoContent>
-                  <p>Team Size: 2-4 members</p>
-                  <p>Open to: Students, professionals, and enthusiasts</p>
+                  <p>Team Size: 3-4 members</p>
                   <p>Experience Level: All levels welcome</p>
                 </InfoContent>
               </InfoCard>
