@@ -37,24 +37,13 @@ const SchedulePage = () => {
       { time: '10:00 PM - 11:00 PM', event: 'Progress Check & Feedback', description: 'Teams share their progress and receive feedback from mentors.' },
       { time: '11:00 PM - 08:00 AM', event: 'Overnight Hackathon', description: 'Continuous development through the night with midnight snacks and support.' },
     ],
-    3: [
-      { time: '08:00 AM - 09:00 AM', event: 'Breakfast', description: 'Final day breakfast to energize teams.' },
-      { time: '09:00 AM - 12:00 PM', event: 'Final Development Sprint', description: 'Last chance to complete prototypes and prepare for presentations.' },
-      { time: '12:00 PM - 01:00 PM', event: 'Lunch Break', description: 'Quick lunch before the final presentations.' },
-      { time: '01:00 PM - 02:00 PM', event: 'Submission Deadline', description: 'All projects must be submitted by this time.' },
-      { time: '02:00 PM - 05:00 PM', event: 'Round 3: Final Presentations', description: 'Top 10 teams present their completed projects to judges and audience.' },
-      { time: '05:00 PM - 06:00 PM', event: 'Judges Deliberation & Expo', description: 'Showcase your project to attendees while judges make their decisions.' },
-      { time: '06:00 PM - 07:30 PM', event: 'Closing Ceremony & Awards', description: 'Announcement of winners, prize distribution, and closing remarks.' },
-      { time: '07:30 PM - 09:30 PM', event: 'Celebration Dinner', description: 'Celebrate the successful completion of Hack-O-Holic 3.0 with all participants.' },
-    ]
   };
 
   // Define the start dates for each day of the hackathon
   const hackathonDates = {
-    1: new Date('April 15, 2025 08:00:00'),
-    2: new Date('April 16, 2025 08:00:00'),
-    3: new Date('April 17, 2025 08:00:00'),
-    end: new Date('April 17, 2025 21:30:00') // End of celebration dinner
+    1: new Date('April 26, 2025 08:00:00'),
+    2: new Date('April 27, 2025 08:00:00'),
+    end: new Date('April 27, 2025 21:30:00') // End of celebration dinner
   };
 
   useEffect(() => {
@@ -172,28 +161,20 @@ const SchedulePage = () => {
               onClick={() => setActiveDay(1)}
             >
               Day 1
-              <TabDate>April 15, 2025</TabDate>
-              <TabDescription>Ideation Round</TabDescription>
+              <TabDate>April 26, 2025</TabDate>
+              <TabDescription>Opening Ceremony and Development Round</TabDescription>
             </DayTab>
             <DayTab 
               active={activeDay === 2} 
               onClick={() => setActiveDay(2)}
             >
               Day 2
-              <TabDate>April 16, 2025</TabDate>
-              <TabDescription>Development Round</TabDescription>
-            </DayTab>
-            <DayTab 
-              active={activeDay === 3} 
-              onClick={() => setActiveDay(3)}
-            >
-              Day 3
-              <TabDate>April 17, 2025</TabDate>
-              <TabDescription>Final Round</TabDescription>
+              <TabDate>April 27, 2025</TabDate>
+              <TabDescription>Prize Distribution and Closing Ceremony</TabDescription>
             </DayTab>
           </DayTabs>
           
-          <ScheduleTimeline>
+          {/* <ScheduleTimeline>
             {scheduleData[activeDay].map((item, index) => (
               <TimelineItem
                 key={index}
@@ -210,7 +191,11 @@ const SchedulePage = () => {
                 </EventContent>
               </TimelineItem>
             ))}
-          </ScheduleTimeline>
+          </ScheduleTimeline> */}
+          <ComingSoon>
+            <h2>🕒 Coming Soon</h2>
+            <p>The detailed schedule will be updated shortly. Stay tuned!</p>
+          </ComingSoon>
         </ScheduleSection>
         
         <InfoSection>
@@ -330,6 +315,25 @@ const SchedulePage = () => {
     </>
   );
 };
+
+const ComingSoon = styled.div`
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  backdrop-filter: blur(5px);
+  color: #fff;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+`;
+
 
 // Original styled components...
 const PageContainer = styled.div`
