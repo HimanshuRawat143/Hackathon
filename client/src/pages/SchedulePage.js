@@ -280,13 +280,6 @@ const SchedulePage = () => {
           <SectionTitle>Frequently Asked Questions</SectionTitle>
           <FAQContainer>
             <FAQ>
-              <FAQQuestion>What is the registration fee?</FAQQuestion>
-              <FAQAnswer>
-              Hack-O-Holic 3.0 brings you an upgraded experience at just ₹350! This small fee ensures quality resources, mentorship, and exciting rewards for all participants. Let's innovate together! 🚀
-              </FAQAnswer>
-            </FAQ>
-            
-            <FAQ>
               <FAQQuestion>Do I need to be a programmer to participate?</FAQQuestion>
               <FAQAnswer>
                 No, Hack-O-Holic 3.0 welcomes participants with diverse skills. Teams benefit from having members with different backgrounds, including design, business, and domain expertise.
