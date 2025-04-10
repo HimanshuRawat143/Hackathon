@@ -72,7 +72,9 @@ const HackathonTimeline = () => {
                 <li>Submit your presentation along with a video explaining your idea.</li>
                 <li>Showcase your creativity and problem-solving approach.</li>
                 <li>The most promising ideas will be selected to move on to the next round.</li>
+                <li>There are no charges for this round.</li>
               </ul>
+
             </TimelineItemDescription>
             <TimelineDetails>
             
@@ -112,10 +114,12 @@ const HackathonTimeline = () => {
             <TimelineItemTitle>Round 2:   24 Hours Hackathon</TimelineItemTitle>
             <TimelineItemDescription>
             <ul>
-                <li>Teams will have 24 hours of nonstop innovation and developing solutions.</li>
-                <li>Fun events and games to keep the energy high.</li>
-                <li>A chance to win exciting rewards and prizes.</li>
-              </ul>
+              <li>Teams will have 24 hours of nonstop innovation and developing solutions.</li>
+              <li>Fun events and games to keep the energy high.</li>
+              <li>A chance to win exciting rewards and prizes.</li>
+              <li>Rs. 300 registration fee per team if your team is selected.</li>
+            </ul>
+
             </TimelineItemDescription>
             <TimelineDetails>
               <TimelineDetailItem>
