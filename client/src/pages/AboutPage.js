@@ -11,19 +11,19 @@ const AboutPage = () => {
     let interval;
     if (isAutoPlaying) {
       interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % 20);
+        setCurrentSlide((prev) => (prev + 1) % 21);
       }, 5000);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % 20);
+    setCurrentSlide((prev) => (prev + 1) % 21);
     setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + 20) % 20);
+    setCurrentSlide((prev) => (prev - 1 + 21) % 21);
     setIsAutoPlaying(false);
   };
 
@@ -353,6 +353,12 @@ const AboutPage = () => {
                     name: 'Yash Kansal',
                     designation: 'Event Co-ordinator',
                     image: '/20YashKansal.jpg'
+                  },
+                  {
+                    id: 21,
+                    name: 'Sagar Bhandari',
+                    designation: 'Event Co-ordinator',
+                    image: '/21SagarBhandari.jpg'
                   }
                 ].map((member, index) => (
                   <TeamSlide
@@ -380,7 +386,7 @@ const AboutPage = () => {
                   </svg>
                 </ControlButton>
                 <SlideIndicators>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((_, index) => (
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((_, index) => (
                     <Indicator
                       key={index}
                       active={index === currentSlide}
