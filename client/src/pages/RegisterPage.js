@@ -176,6 +176,7 @@ const RegisterPage = () => {
             <Label>Project Title</Label>
             <Input name="projectTitle" onChange={handleInputChange} value={formData.projectTitle} required />
           </FormGroup>
+          <br></br>
           <FormGroup>
             <Label>Problem Statement</Label>
             <Input name="problemStatement" onChange={handleInputChange} value={formData.problemStatement} required />
@@ -200,6 +201,8 @@ const RegisterPage = () => {
             '🚀 Submit Now'
           )}
         </SubmitButton>
+        <br></br>
+        <p style={{ fontSize: '15px' }}>*Note: If you're experiencing issues with this form, please use this <a style={{ fontWeight: '700', color: 'solid black' }} href="https://forms.gle/aB1GR2X171ZWMSNc9" target="_blank" rel="noopener noreferrer">[Google Form]</a> instead.</p>
       </GlassForm>
     </Container>
   );
@@ -337,7 +340,7 @@ const RadioOption = styled.label`
   gap: 0.5rem;
 
   input[type='radio'] {
-    accent-color: white;
+    accent-color: black;
     transform: scale(1.2);
   }
 `;
