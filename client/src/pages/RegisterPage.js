@@ -202,7 +202,7 @@ const RegisterPage = () => {
           )}
         </SubmitButton>
         <br></br>
-        <p style={{ fontSize: '15px' }}>*Note: If you're experiencing issues with this form, please use this <a style={{ fontWeight: '700', color: 'solid black' }} href="https://forms.gle/aB1GR2X171ZWMSNc9" target="_blank" rel="noopener noreferrer">[Google Form]</a> instead.</p>
+        <p style={{ fontSize: '15px' }}>*Note: If you're experiencing issues with this form, please use this <a style={{ fontWeight: '700', color: 'solid black' }} href="https://forms.gle/FGtnRgQmJJJNGSnWA" target="_blank" rel="noopener noreferrer">[Google Form]</a> instead.</p>
       </GlassForm>
     </Container>
   );
