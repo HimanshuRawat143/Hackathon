@@ -19,7 +19,6 @@ const RegisterPage = () => {
     problemStatement: '',
     description: '',
     pptFile: null,
-    videoFile: null,
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -70,7 +69,6 @@ const RegisterPage = () => {
 
       if (formData.erpFile) form.append('erpFile', await encodeFileToBase64(formData.erpFile));
       if (formData.pptFile) form.append('pptFile', await encodeFileToBase64(formData.pptFile));
-      if (formData.videoFile) form.append('videoFile', await encodeFileToBase64(formData.videoFile));
 
       const response = await fetch('https://script.google.com/macros/s/AKfycbzRvvxHLBFpCR2szPSKjZEHEJJRLZ7_FhJencCCJJpIujagZRYQ1BXsiXU6T0e95K9e/exec', {
         method: 'POST',
@@ -129,8 +127,9 @@ const RegisterPage = () => {
           ))}
           <FormGroup>{renderUniversityRadios('leaderUniversity', formData.leaderUniversity, handleInputChange)}</FormGroup>
           <FormGroup>
-            <Label>ERP ID Card (PDF)</Label>
+            <Label>ERP ID Card (.pdf format upto 10mb)</Label>
             <Input type="file" name="erpFile" accept=".pdf" onChange={handleInputChange} required />
+            <Label style={{ fontStyle: 'italic', fontSize: '12px' }}>Note : Pdf should contain the ID Cards of all team members !</Label>
           </FormGroup>
         </Grid>
 
@@ -151,12 +150,22 @@ const RegisterPage = () => {
               ))}
               <FormGroup>
                 {renderUniversityRadios(
-                  `university`,
+                  `member${n}_university`,
                   formData[`member${n}`].university,
-                  (e) => handleInputChange(e, `member${n}`),
-                  n !== 4
+                  (e) => {
+                    const { value } = e.target;
+                    setFormData((prev) => ({
+                        ...prev,
+                        [`member${n}`]: {
+                        ...prev[`member${n}`],
+                        university: value,
+                        },
+                    }));
+                    },
+                    n !== 4
                 )}
-              </FormGroup>
+                </FormGroup>
+
             </Grid>
           </div>
         ))}
@@ -176,12 +185,9 @@ const RegisterPage = () => {
             <TextArea name="description" onChange={handleInputChange} value={formData.description} required />
           </FormGroup>
           <FormGroup>
-            <Label>Presentation (PPTX)</Label>
+            <Label>Presentation (.pptx format upto 10mb)</Label>
             <Input type="file" name="pptFile" accept=".pptx" onChange={handleInputChange} required />
-          </FormGroup>
-          <FormGroup>
-            <Label>Video (MP4)</Label>
-            <Input type="file" name="videoFile" accept="video/mp4" onChange={handleInputChange} required />
+            <Label style={{ fontStyle: 'italic', fontSize: '12px' }}>Note : Presentation should contain 5-6 slides only.</Label>
           </FormGroup>
         </Grid>
 
