@@ -109,7 +109,7 @@ const ContactPage = () => {
                     <ContactLabel>Phone</ContactLabel>
                     <ContactValue>+91 7464959260</ContactValue>
                     <ContactValue>+91 7818874934</ContactValue>
-                    <ContactValue>+91 9142729039</ContactValue>
+                    <ContactValue>+91 8191013531</ContactValue>
                   </ContactDetails>
                 </ContactMethod>
                 
