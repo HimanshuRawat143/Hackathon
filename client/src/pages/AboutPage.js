@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import VideoBackground from '../components/VideoBackground';
 
 const AboutPage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  useEffect(() => {
+    let interval;
+    if (isAutoPlaying) {
+      interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % 20);
+      }, 5000);
+    }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % 20);
+    setIsAutoPlaying(false);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + 20) % 20);
+    setIsAutoPlaying(false);
+  };
+
   return (
     <>
       <VideoBackground />
@@ -199,7 +222,7 @@ const AboutPage = () => {
                   <TeamMemberName>Mr. Sushant Chamoli</TeamMemberName>
                   <TeamMemberRole>Assistant Professor, GEHU</TeamMemberRole>
                   <TeamMemberBio>
-                  A supportive mentor and guiding force behind the club’s growth, encouraging student innovation and teamwork.
+                  A supportive mentor and guiding force behind the club's growth, encouraging student innovation and teamwork.
                   </TeamMemberBio>
                 </TeamMemberInfo>
               </TeamMember>
@@ -208,75 +231,173 @@ const AboutPage = () => {
           
           <SectionContainer>
             <SectionTitle>The Team Behind Hack-O-Holic</SectionTitle>
-            <TeamGrid>
-              <TeamMember
-                as={motion.div}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <TeamMemberImage src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Team Member 1" />
-                <TeamMemberInfo>
-                  <TeamMemberName>Anubhav</TeamMemberName>
-                  <TeamMemberRole>Backend Developer</TeamMemberRole>
-                  <TeamMemberBio>
-                    A passionate backend developer with a strong background in building scalable and secure applications.
-                  </TeamMemberBio>
-                </TeamMemberInfo>
-              </TeamMember>
-              
-              <TeamMember
-                as={motion.div}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <TeamMemberImage src="https://c.pxhere.com/photos/dd/a6/business_man_businessman_corporate_suit_executive_successful_entrepreneur-675843.jpg!d" alt="Team Member 1" />
-                <TeamMemberInfo>
-                  <TeamMemberName>Aryan Pal</TeamMemberName>
-                  <TeamMemberRole>Backend Developer</TeamMemberRole>
-                  <TeamMemberBio>
-                    A passionate backend developer with a strong background in building scalable and secure applications.
-                  </TeamMemberBio>
-                </TeamMemberInfo>
-              </TeamMember>
-              
-              <TeamMember
-                as={motion.div}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <TeamMemberImage src="https://th.bing.com/th/id/OIP.a_C9v1H7RBbVyFjU4udThgHaKX?rs=1&pid=ImgDetMain" alt="Team Member 1" />
-                <TeamMemberInfo>
-                  <TeamMemberName>Shivang</TeamMemberName>
-                  <TeamMemberRole>Backend Developer</TeamMemberRole>
-                  <TeamMemberBio>
-                    A passionate backend developer with a strong background in building scalable and secure applications.
-                  </TeamMemberBio>
-                </TeamMemberInfo>
-              </TeamMember>
-              
-              <TeamMember
-                as={motion.div}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <TeamMemberImage src="https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgHaLH?rs=1&pid=ImgDetMain" alt="Team Member 1" />
-                <TeamMemberInfo>
-                  <TeamMemberName>Himanshu Rawat</TeamMemberName>
-                  <TeamMemberRole>Backend Developer</TeamMemberRole>
-                  <TeamMemberBio>
-                    A passionate backend developer with a strong background in building scalable and secure applications.
-                  </TeamMemberBio>
-                </TeamMemberInfo>
-              </TeamMember>
-            </TeamGrid>
+            <TeamSlideshow>
+              <SlideContainer>
+                {[
+                  {
+                    id: 1,
+                    name: 'Anubhav Patwal',
+                    designation: 'President',
+                    image: '/1AnubhavPatwal.jpg'
+                  },
+                  {
+                    id: 2,
+                    name: 'Shayan Malik',
+                    designation: 'Vice President',
+                    image: '/2ShayanMalik.jpg'
+                  },
+                  {
+                    id: 3,
+                    name: 'Aryan Pal',
+                    designation: 'General Secretary',
+                    image: '/3AryanPal.jpg'
+                  },
+                  {
+                    id: 4,
+                    name: 'Ishika Sharma',
+                    designation: 'Finance Head',
+                    image: '/4IshikaSharma.jpg'
+                  },
+                  {
+                    id: 5,
+                    name: 'Yugank Prajapati',
+                    designation: 'Social Media Head',
+                    image: '/5YugankPrajapati.png'
+                  },
+                  {
+                    id: 6,
+                    name: 'Anshul Raturi',
+                    designation: 'Social Media Co-Head',
+                    image: '/6AnshulRaturi.jpg'
+                  },
+                  {
+                    id: 7,
+                    name: 'Shruti Dabral',
+                    designation: 'Spokes Person',
+                    image: '/7ShrutiDabral.jpg'
+                  },
+                  {
+                    id: 8,
+                    name: 'Shrishti',
+                    designation: 'Designing Head',
+                    image: '/8Shrishti.jpg'
+                  },
+                  {
+                    id: 9,
+                    name: ' Vinita',
+                    designation: 'Designing Co-Head',
+                    image: '/9Vinita.jpg'
+                  },
+                  {
+                    id: 10,
+                    name: 'Manas Singhal',
+                    designation: 'Management Head',
+                    image: '/10ManasSinghal.jpg'
+                  },
+                  {
+                    id: 11,
+                    name: 'Diksha',
+                    designation: 'Management Co-Head',
+                    image: '/11Diksha.jpg'
+                  },
+                  {
+                    id: 12,
+                    name: 'Armaan Rawat',
+                    designation: 'Technical Head',
+                    image: '/12ArmaanRawat.jpg'
+                  },
+                  {
+                    id: 13,
+                    name: 'Meraj Alam',
+                    designation: 'Technical Co-Head',
+                    image: '/13MerajAlam.jpg'
+                  },
+                  {
+                    id: 14,
+                    name: 'Archit',
+                    designation: 'Technical Co-Head',
+                    image: '/14Archit.jpg'
+                  },
+                  {
+                    id: 15,
+                    name: 'Kiran Kanyal',
+                    designation: 'Event Co-ordinator',
+                    image: '/15KiranKanyal.jpg'
+                  },
+                  {
+                    id: 16,
+                    name: 'Satendra Negi',
+                    designation: 'Advisor',
+                    image: '/16SatendraNegi.jpg'
+                  },
+                  {
+                    id: 17,
+                    name: 'Kajal Bijalwan',
+                    designation: 'Advisor',
+                    image: '/17KajalBijalwan.jpg'
+                  },
+                  {
+                    id: 18,
+                    name: 'Mokarram',
+                    designation: 'Advisor',
+                    image: '/18Mokarram.jpg'
+                  },
+                  {
+                    id: 19,
+                    name: 'Sarthak Raghuvanshi',
+                    designation: 'Advisor',
+                    image: '/19SarthakRaghuvanshi.jpg'
+                  },
+                  {
+                    id: 20,
+                    name: 'Yash Kansal',
+                    designation: 'Event Co-ordinator',
+                    image: '/20YashKansal.jpg'
+                  }
+                ].map((member, index) => (
+                  <TeamSlide
+                    key={member.id}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{
+                      opacity: index === currentSlide ? 1 : 0,
+                      x: index === currentSlide ? 0 : 100,
+                      display: index === currentSlide ? 'flex' : 'none'
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <TeamImage src={member.image} alt={member.name} />
+                    <TeamInfo>
+                      <TeamName>{member.name}</TeamName>
+                      <TeamDesignation>{member.designation}</TeamDesignation>
+                    </TeamInfo>
+                  </TeamSlide>
+                ))}
+              </SlideContainer>
+              <SlideControls>
+                <ControlButton onClick={prevSlide}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </ControlButton>
+                <SlideIndicators>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((_, index) => (
+                    <Indicator
+                      key={index}
+                      active={index === currentSlide}
+                      onClick={() => {
+                        setCurrentSlide(index);
+                        setIsAutoPlaying(false);
+                      }}
+                    />
+                  ))}
+                </SlideIndicators>
+                <ControlButton onClick={nextSlide}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </ControlButton>
+              </SlideControls>
+            </TeamSlideshow>
           </SectionContainer>
         </ContentSection>
       </PageContainer>
@@ -470,6 +591,119 @@ const TeamMemberRole = styled.p`
 const TeamMemberBio = styled.p`
   color: #b0b0b0;
   line-height: 1.6;
+`;
+
+const TeamDesignation = styled.p`
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ffffff 0%, #b0b0b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
+
+const TeamSlideshow = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+`;
+
+const SlideContainer = styled.div`
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+`;
+
+const TeamSlide = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+`;
+
+const TeamImage = styled.img`
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid rgba(110, 0, 255, 0.3);
+  box-shadow: 0 0 20px rgba(110, 0, 255, 0.3);
+`;
+
+const TeamInfo = styled.div`
+  text-align: center;
+  margin-top: 10px;
+`;
+
+const TeamName = styled.h3`
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+`;
+
+const SlideControls = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const ControlButton = styled.button`
+  background: linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    color: white;
+  }
+`;
+
+const SlideIndicators = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const Indicator = styled.button`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: ${props => props.active ? 'linear-gradient(90deg, #6e00ff 0%, #ff00e6 100%)' : 'rgba(255, 255, 255, 0.3)'};
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export default AboutPage;
