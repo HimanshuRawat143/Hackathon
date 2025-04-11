@@ -43,6 +43,9 @@ const Navbar = () => {
           <NavItem active={location.pathname === '/'}>
             <NavLink to="/" onClick={closeMenu}>Home</NavLink>
           </NavItem>
+          {/* <NavItem active={location.pathname === '/register'}>
+            <NavLink to="/register" onClick={closeMenu}>Register</NavLink>
+          </NavItem> */}
           <NavItem active={location.pathname === '/about'}>
             <NavLink to="/about" onClick={closeMenu}>About</NavLink>
           </NavItem>

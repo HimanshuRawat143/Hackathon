@@ -115,9 +115,9 @@ const HackathonTimeline = () => {
             <TimelineItemDescription>
             <ul>
               <li>Teams will have 24 hours of nonstop innovation and developing solutions.</li>
+              <li>Rs. 300 registration fee per team if your team is selected.</li>
               <li>Fun events and games to keep the energy high.</li>
               <li>A chance to win exciting rewards and prizes.</li>
-              <li>Rs. 300 registration fee per team if your team is selected.</li>
             </ul>
 
             </TimelineItemDescription>
@@ -142,50 +142,6 @@ const HackathonTimeline = () => {
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                 </svg>
                 <span>Selection: Top 3 Teams</span>
-              </TimelineDetailItem>
-            </TimelineDetails>
-          </TimelineContent>
-        </TimelineItem>
-        
-        <TimelineItem
-          ref={ref3}
-          as={motion.div}
-          initial={{ opacity: 0, x: -100 }}
-          animate={inView3 ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <TimelineNumber>03</TimelineNumber>
-          <TimelineContent>
-            <TimelineItemTitle>Round 3: Final Round                                                                                                                                            The Grand Finale!
-            </TimelineItemTitle>
-            <TimelineItemDescription>
-            <ul>
-                <li>Winners will receive exciting rewards.</li>
-                <li>Special recognition and felicitation for the winners.</li>
-                <li>Closing ceremony to wrap up the event.</li>
-              </ul>
-            </TimelineItemDescription>
-            <TimelineDetails>
-              {/* <TimelineDetailItem>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <span>Duration: 3 Hours</span>
-              </TimelineDetailItem> */}
-              <TimelineDetailItem>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="8" r="7"></circle>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-                <span>Prizes: 25,000 Pool</span>
-              </TimelineDetailItem>
-              <TimelineDetailItem>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-                <span>Prize Distribution</span>
               </TimelineDetailItem>
             </TimelineDetails>
           </TimelineContent>
