@@ -55,7 +55,7 @@ const HomePage = () => {
 
   const handleRegisterClick = (e) => {
     e.preventDefault();
-    window.open('https://forms.gle/aB1GR2X171ZWMSNc9', '_blank');
+    window.open('https://forms.gle/FGtnRgQmJJJNGSnWA', '_blank');
   };
 
   return (
