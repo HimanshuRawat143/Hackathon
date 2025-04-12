@@ -8,7 +8,7 @@ const EventsPage = () => {
     {
       id: 1,
       title: 'Kickoff Ceremony',
-      date: 'April 15, 2025',
+      date: 'April 26, 2025',
       time: '10:00 AM',
       description: 'Join us for the grand opening of Hack-O-Holic 3.0 where we will introduce the themes, sponsors, and rules.',
       image: '/event1.jpg',
@@ -16,7 +16,7 @@ const EventsPage = () => {
     {
       id: 2,
       title: 'Workshop: AI in Modern Applications',
-      date: 'April 15, 2025',
+      date: 'April 26, 2025',
       time: '2:00 PM',
       description: 'Learn how to integrate AI into your hackathon projects with practical examples and hands-on guidance.',
       image: '/event2.jpg',
@@ -24,7 +24,7 @@ const EventsPage = () => {
     {
       id: 3,
       title: 'Networking Mixer',
-      date: 'April 15, 2025',
+      date: 'April 26, 2025',
       time: '6:00 PM',
       description: 'Connect with fellow participants, mentors, and industry professionals in a casual setting.',
       image: '/event3.jpg',
@@ -32,7 +32,7 @@ const EventsPage = () => {
     {
       id: 4,
       title: 'Mid-Hackathon Check-in',
-      date: 'April 16, 2025',
+      date: 'April 26, 2025',
       time: '12:00 PM',
       description: 'Present your progress to mentors and receive valuable feedback to improve your project.',
       image: '/event4.jpg',
@@ -40,7 +40,7 @@ const EventsPage = () => {
     {
       id: 5,
       title: 'Workshop: Pitching Your Project',
-      date: 'April 16, 2025',
+      date: 'April 27, 2025',
       time: '4:00 PM',
       description: 'Learn effective presentation techniques to showcase your project to judges and potential investors.',
       image: '/event5.jpg',
@@ -48,7 +48,7 @@ const EventsPage = () => {
     {
       id: 6,
       title: 'Final Presentations',
-      date: 'April 17, 2025',
+      date: 'April 27, 2025',
       time: '10:00 AM',
       description: 'Teams present their completed projects to a panel of judges from the tech industry.',
       image: '/event6.jpg',
@@ -56,7 +56,7 @@ const EventsPage = () => {
     {
       id: 7,
       title: 'Award Ceremony',
-      date: 'April 17, 2025',
+      date: 'April 27, 2025',
       time: '4:00 PM',
       description: 'Celebrate the achievements of all participants and find out which teams will take home the prizes.',
       image: '/event7.jpg',
@@ -64,7 +64,7 @@ const EventsPage = () => {
     {
       id: 8,
       title: 'Closing Party',
-      date: 'April 17, 2025',
+      date: 'April 27, 2025',
       time: '7:00 PM',
       description: 'Unwind and celebrate the end of an amazing hackathon with food, music, and networking.',
       image: '/event8.jpg',
