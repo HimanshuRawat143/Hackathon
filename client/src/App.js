@@ -9,7 +9,7 @@ import SchedulePage from './pages/SchedulePage';
 import ContactPage from './pages/ContactPage';
 import EventsPage from './pages/EventsPage';
 import CertificatePage from './pages/CertificatePage';
-import RegisterPage from './pages/RegisterPage';
+// import RegisterPage from './pages/RegisterPage';
 import './App.css';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        {/* <Route path="/register" element={<RegisterPage />} /> */}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/schedule" element={<SchedulePage />} />
         <Route path="/events" element={<EventsPage />} />
