@@ -69,10 +69,11 @@ const HackathonTimeline = () => {
             <TimelineItemTitle>Round 1: Registration Round</TimelineItemTitle>
             <TimelineItemDescription>
               <ul>
-                <li>Submit your presentation along with a video explaining your idea.</li>
+                <li>Submit your presentation, explaining your idea.</li>
                 <li>Showcase your creativity and problem-solving approach.</li>
                 <li>The most promising ideas will be selected to move on to the next round.</li>
                 <li>There are no charges for this round.</li>
+                <li>Last date of submission: April 20, 2025</li>
               </ul>
 
             </TimelineItemDescription>
