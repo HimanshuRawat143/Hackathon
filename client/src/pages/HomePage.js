@@ -157,7 +157,8 @@ const HomePage = () => {
           <AboutText>
             <p>
             Hack-O-Holic 3.0 is more than a hackathon, it's a celebration of innovation, creativity, and technology.
-            It brings bright minds together to collaborate, compete, and solve real-world problems.
+            It brings bright minds together to collaborate, compete, and solve real-world problems.<br/>
+            <span style={{ color: '#FFFF00' }}>Only for Graphic Era Hill University and Deemed University !</span>
             </p>
             <AboutStats>
               <StatItem>
