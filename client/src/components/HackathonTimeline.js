@@ -73,7 +73,7 @@ const HackathonTimeline = () => {
                 <li>Showcase your creativity and problem-solving approach.</li>
                 <li>The most promising ideas will be selected to move on to the next round.</li>
                 <li>There are no charges for this round.</li>
-                <li style={{ color: '#FFFF00' }}>Last date of submission: April 20, 2025</li>
+                <li style={{ color: '#FFFF00' }}>Last date of submission: April 21, 2025</li>
               </ul>
 
             </TimelineItemDescription>
