@@ -7,67 +7,66 @@ const EventsPage = () => {
   const events = [
     {
       id: 1,
-      title: 'Kickoff Ceremony',
+      title: 'SQUID GAME',
       date: 'April 26, 2025',
-      time: '10:00 AM',
-      description: 'Join us for the grand opening of Hack-O-Holic 3.0 where we will introduce the themes, sponsors, and rules.',
+      description: 'It is a fun, interactive sub-event that is inspired by famous series Squid Game. It is a fun event that makes gives participants time apart from technical things.',
       image: '/event1.jpg',
     },
     {
       id: 2,
-      title: 'Workshop: AI in Modern Applications',
+      title: 'Valorant',
       date: 'April 26, 2025',
-      time: '2:00 PM',
-      description: 'Learn how to integrate AI into your hackathon projects with practical examples and hands-on guidance.',
+      description: 'As a thrilling addition to Hackoholic 3.0, we are organizing an electrifying Valorant E-sports Tournament to blend coding with clutch plays. This sub-event aims to bring together competitive, teamwork, and strategy in a high-energy gaming environment',
       image: '/event2.jpg',
     },
     {
       id: 3,
-      title: 'Networking Mixer',
+      title: 'Open Mic - Unleash Your Vibe!',
       date: 'April 26, 2025',
-      time: '6:00 PM',
-      description: 'Connect with fellow participants, mentors, and industry professionals in a casual setting.',
+      description: 'It is an energetic and expressive sub-event that invites participants to take the spotlight and share their unique talents—be it singing, rap, beatboxing, poetry/shayari, or a hidden talent that deserves the stage.',
       image: '/event3.jpg',
     },
     {
       id: 4,
-      title: 'Mid-Hackathon Check-in',
+      title: 'Technical Treasure Hunt',
       date: 'April 26, 2025',
-      time: '12:00 PM',
-      description: 'Present your progress to mentors and receive valuable feedback to improve your project.',
-      image: '/event4.jpg',
+      description: 'It is a thrilling sub-event that challenges your problem-solving skills, logical thinking, and technical knowledge. Teams will solve a series of clues and puzzles to unlock the next level. The fastest and most accurate team wins exciting prizes!',
+      image: '/event4.png',
     },
     {
       id: 5,
-      title: 'Workshop: Pitching Your Project',
-      date: 'April 27, 2025',
-      time: '4:00 PM',
-      description: 'Learn effective presentation techniques to showcase your project to judges and potential investors.',
+      title: 'Workshop on deployment',
+      date: 'April 26, 2025',
+      description: 'In this workshop, you\'ll learn how to take your web or software project from your local machine to a live environment online. We\'ll cover key concepts like deployment, hosting platforms, domain setup, and version control.',
       image: '/event5.jpg',
     },
     {
       id: 6,
-      title: 'Final Presentations',
-      date: 'April 27, 2025',
-      time: '10:00 AM',
-      description: 'Teams present their completed projects to a panel of judges from the tech industry.',
+      title: 'Best Social Media Post',
+      date: 'April 26, 2025',
+      description: 'It is an exciting sub-event that gives you a chance to win amazing prizes by showcasing your creativity and photography skills. Participants must post photos on their social media, and the best one will be declared the winner',
       image: '/event6.jpg',
     },
     {
       id: 7,
-      title: 'Award Ceremony',
-      date: 'April 27, 2025',
-      time: '4:00 PM',
-      description: 'Celebrate the achievements of all participants and find out which teams will take home the prizes.',
+      title: 'Kill The Bug',
+      date: 'April 26, 2025',
+      description: 'It is a fun, interactive sub-event that tests your error resolving ability, Participants must recognize the syntax and basic logical errors(bugs) and correct them.',
       image: '/event7.jpg',
     },
     {
       id: 8,
-      title: 'Closing Party',
+      title: 'Blind Typing Challenge',
       date: 'April 27, 2025',
-      time: '7:00 PM',
-      description: 'Unwind and celebrate the end of an amazing hackathon with food, music, and networking.',
+      description: 'It is a fast-paced sub-event where your coding memory and typing skills are put to the test. See a code snippet… memorize it… then type it out blindly!',
       image: '/event8.jpg',
+    },
+    {
+      id: 9,
+      title: 'Random Things Use',
+      date: 'April 27, 2025',
+      description: 'Put your creativity to the test! In this fun and fast-paced challenge, each participant will be given a random everyday object and participants must tell its uses other than its original use.',
+      image: '/event9.jpg',
     }
   ];
 
@@ -100,13 +99,11 @@ const EventsPage = () => {
                   <EventImage src={event.image} alt={event.title} />
                   <EventDate>
                     <span>{event.date}</span>
-                    <span>{event.time}</span>
                   </EventDate>
                 </EventImageContainer>
                 <EventContent>
                   <EventTitle>{event.title}</EventTitle>
                   <EventDescription>{event.description}</EventDescription>
-                  <EventButton>Learn More</EventButton>
                 </EventContent>
               </EventCard>
             ))}
