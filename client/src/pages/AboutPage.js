@@ -359,7 +359,13 @@ const AboutPage = () => {
                     name: 'Sagar Bhandari',
                     designation: 'Event Co-ordinator',
                     image: '/21SagarBhandari.jpg'
-                  }
+                  },
+                  {
+                    id: 22,
+                    name: 'Mahi Tyagi',
+                    designation: 'Event Co-ordinator',
+                    image: '/22MahiTyagi.png'
+                  },
                 ].map((member, index) => (
                   <TeamSlide
                     key={member.id}
