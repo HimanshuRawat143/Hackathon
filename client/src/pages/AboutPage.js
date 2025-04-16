@@ -18,12 +18,12 @@ const AboutPage = () => {
   }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % 21);
+    setCurrentSlide((prev) => (prev + 1) % 22);
     setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + 21) % 21);
+    setCurrentSlide((prev) => (prev - 1 + 22) % 22);
     setIsAutoPlaying(false);
   };
 
@@ -392,7 +392,7 @@ const AboutPage = () => {
                   </svg>
                 </ControlButton>
                 <SlideIndicators>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((_, index) => (
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map((_, index) => (
                     <Indicator
                       key={index}
                       active={index === currentSlide}
