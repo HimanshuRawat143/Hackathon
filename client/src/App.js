@@ -9,6 +9,7 @@ import SchedulePage from './pages/SchedulePage';
 import ContactPage from './pages/ContactPage';
 import EventsPage from './pages/EventsPage';
 import CertificatePage from './pages/CertificatePage';
+import ResultPage from './pages/ResultPage';
 // import RegisterPage from './pages/RegisterPage';
 import './App.css';
 
@@ -18,12 +19,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/result" element={<ResultPage />} />
         {/* <Route path="/register" element={<RegisterPage />} /> */}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/schedule" element={<SchedulePage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/certificate" element={<CertificatePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        
       </Routes>
       <Footer />
     </AppContainer>

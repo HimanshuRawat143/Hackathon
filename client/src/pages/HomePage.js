@@ -58,6 +58,11 @@ const HomePage = () => {
     window.open('https://forms.gle/FGtnRgQmJJJNGSnWA', '_blank');
   };
 
+  const handleResultClick = (e) => {
+    e.preventDefault();
+    window.open('/result', '_self');
+  };
+
   return (
     <>
       <VideoBackground />
@@ -74,7 +79,7 @@ const HomePage = () => {
             Join the coding adventure — innovate, collaborate, and build your ideas.
             </HeroDescription>
             <HeroButtons>
-              <PrimaryButton onClick={handleRegisterClick}>Register Now</PrimaryButton>
+              <PrimaryButton onClick={handleResultClick}>Result</PrimaryButton>
               <SecondaryButton to="/events">Hackathon Events</SecondaryButton>
             </HeroButtons>
             <EventDetails>
