@@ -79,7 +79,7 @@ const HomePage = () => {
             Join the coding adventure — innovate, collaborate, and build your ideas.
             </HeroDescription>
             <HeroButtons>
-              <PrimaryButton onClick={handleResultClick}>Result</PrimaryButton>
+              <PrimaryButton onClick={handleResultClick}>View Result</PrimaryButton>
               <SecondaryButton to="/events">Hackathon Events</SecondaryButton>
             </HeroButtons>
             <EventDetails>
