@@ -53,7 +53,7 @@ const ResultPage = () => {
       { teamName: 'Yuva Coders', teamLeader: 'Dev Kumar Prajapati' },
       { teamName: 'Tech Titan', teamLeader: 'Vinayak Bahukhandi' },
       { teamName: 'Kanyedev', teamLeader: 'Ayush Kalakoti' },
-      { teamName: 'Tactitan', teamLeader: 'Himanshu Bist' },
+      { teamName: 'Tactitan', teamLeader: 'Himanshu Bisht' },
       { teamName: 'Close-Knit', teamLeader: 'Rishita' },
       { teamName: 'Sync Squad', teamLeader: 'Abhishek Kumar Rai' },
       { teamName: 'Fusion Four', teamLeader: 'Prince Panwar' },
@@ -119,6 +119,7 @@ const ResultPage = () => {
       { teamName: 'Quantix', teamLeader: 'Sharad pawar saini' },
       { teamName: 'Debug Divas', teamLeader: 'Avni Joshi' },
       { teamName: 'TechnoShifters', teamLeader: 'Vansh Singh Lalotra' },
+      {teamName:'Krishi seva',teamLeader: 'Raja digvijay singh'}
   ];
   
   // Generate additional placeholder data to reach 120 rows
