@@ -119,7 +119,8 @@ const ResultPage = () => {
       { teamName: 'Quantix', teamLeader: 'Sharad pawar saini' },
       { teamName: 'Debug Divas', teamLeader: 'Avni Joshi' },
       { teamName: 'TechnoShifters', teamLeader: 'Vansh Singh Lalotra' },
-      {teamName:'Krishi seva',teamLeader: 'Raja digvijay singh'}
+      {teamName:'Krishi seva',teamLeader: 'Raja digvijay singh'},
+      {teamName:'The Endurance',teamLeader: 'Divyanshu Kaintura'}
   ];
   
   // Generate additional placeholder data to reach 120 rows
