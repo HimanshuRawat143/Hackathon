@@ -30,7 +30,6 @@ const ResultPage = () => {
       { teamName: 'Cipher Sights', teamLeader: 'Swastika Chand' },
       { teamName: 'Enigma', teamLeader: 'Aryavansh Saini' },
       { teamName: 'Tech 4', teamLeader: 'Krishna Gupta' },
-      { teamName: 'Technoshifters', teamLeader: 'Vansh Singh Lalotra' },
       { teamName: 'Prompt Pirate', teamLeader: 'Vikas Rawat' },
       { teamName: 'Straw Hats', teamLeader: 'Shobhit Rawat' },
       { teamName: 'Encodr', teamLeader: 'Tanishka Bisht' },
