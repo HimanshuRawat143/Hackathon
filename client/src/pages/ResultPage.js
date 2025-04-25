@@ -125,7 +125,7 @@ const ResultPage = () => {
     const fullTeamData = [...teamData];
     
     // Add placeholder data until we reach 107 rows
-    for (let i = teamData.length; i < 107; i++) {
+    for (let i = teamData.length; i < 109; i++) {
       fullTeamData.push({
         teamName: `Team ${i + 1}`,
         teamLeader: `Leader ${i + 1}`
