@@ -116,7 +116,8 @@ const ResultPage = () => {
     { teamName: 'Teamrocket', teamLeader: 'Mohd Kaif' },
     { teamName: 'Runtime Terrors', teamLeader: 'Utkarsh Saini' },
     { teamName: 'Tech Avengers', teamLeader: 'Sneha Bhalla' },
-    
+    { teamName: 'main()characters', teamLeader: 'Aditya Singh Mandrawal' },
+    { teamName: 'Sonicdropsquad', teamLeader: 'Suraj Singh Bhandari' },
   ];
   
   // Generate additional placeholder data to reach 107 rows
