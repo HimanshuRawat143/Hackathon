@@ -60,7 +60,7 @@ const HomePage = () => {
 
   const handleResultClick = (e) => {
     e.preventDefault();
-    window.open('/result', '_self');
+    window.open('https://hack-o-holic-certificate.onrender.com', '_blank');
   };
 
   return (
@@ -79,7 +79,7 @@ const HomePage = () => {
             Join the coding adventure — innovate, collaborate, and build your ideas.
             </HeroDescription>
             <HeroButtons>
-              <PrimaryButton onClick={handleResultClick}>View Result</PrimaryButton>
+              <PrimaryButton onClick={handleResultClick}>Download Certificate</PrimaryButton>
               <SecondaryButton to="/events">Hackathon Events</SecondaryButton>
             </HeroButtons>
             <EventDetails>
