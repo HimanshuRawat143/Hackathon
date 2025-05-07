@@ -5,12 +5,10 @@ import VideoBackground from '../components/VideoBackground';
 
 const CertificatePage = () => {
   // Function to handle certificate download (commented out for now)
-  /*
   const handleDownloadCertificate = () => {
     // Redirect to certificate download website
-    window.open('https://certificates.hackoholic.com', '_blank');
+    window.open('https://hack-o-holic-certificate.onrender.com', '_blank');
   };
-  */
 
   return (
     <>
@@ -31,22 +29,15 @@ const CertificatePage = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
-                <ComingSoonIcon>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </ComingSoonIcon>
                 <ComingSoonText>
-                  <ComingSoonTitle>Coming Soon</ComingSoonTitle>
+                  <ComingSoonTitle>Certificates Available Now !</ComingSoonTitle>
                   <ComingSoonDescription>
-                    Certificates for Hack-O-Holic 3.0 will be available here after the event concludes.
-                    Stay tuned!
+                    Certificates for Hack-O-Holic 3.0 are available here.
                   </ComingSoonDescription>
                 </ComingSoonText>
                 
-{/*                 
-                Uncomment this button when certificates are available
+                
+                {/* //Uncomment this button when certificates are available */}
                 <DownloadButton onClick={handleDownloadCertificate}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -55,7 +46,7 @@ const CertificatePage = () => {
                   </svg>
                   Download Certificate
                 </DownloadButton>
-                */}
+               
               </ComingSoonCard>
             </ComingSoonContainer>
             
